@@ -3,7 +3,7 @@ import SearchCard from "./SearchCard";
 
 //
 export default function SearchCompo() {
-  const [showSearchCards, setshowSearchCards] = useState(true);
+  const [showSearchCards, setshowSearchCards] = useState(false);
   const handelSubmitWeather = (e) => {
     e.preventDefault();
     // getWeather(searchWord);
