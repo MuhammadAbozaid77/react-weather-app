@@ -12,7 +12,7 @@ export default function DayWeatherDetails() {
   if (isLoading) {
     return (
       <>
-        <div className="flex justify-center items-center my-[50px] flex-col">
+        <div className="flex justify-center items-center my-[50px] flex-col w-[100%]">
           <div>
             <SpinnerLoading />
           </div>

@@ -8,7 +8,7 @@ export default function App() {
     <>
       <div className="flex justify-center items-center p-[50px]  h-[100vh]">
         <div className="h-[80vh] w-[100%] flex justify-between items-center rounded-[10px]  shadow-2xl border-[5px] overflow-hidden border-black">
-          <div className="md:w-[500px]  h-[100%] bg-white p-5">
+          <div className="lg:w-[500px]  w-[400px] h-[100%] bg-white p-5">
             <DayWeatherDetails />
           </div>
           <div className="w-[100%] flex flex-col justify-between h-[100%] bg-blue-500/30">

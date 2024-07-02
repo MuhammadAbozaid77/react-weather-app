@@ -1,13 +1,25 @@
 import { useContext, useEffect, useState } from "react";
 import SearchCard from "./SearchCard";
 import { weatherContext } from "../context/WeatherContext";
-import logo from "../assets/pics/logo.png";
 
 //
 export default function SearchCompo() {
   const [searchWord, setSearchWord] = useState("");
 
-  const { cityLocationData, getWeather } = useContext(weatherContext);
+  const { cityLocationData, getWeather, getWeatherDetails } =
+    useContext(weatherContext);
+
+  useEffect(() => {
+    getWeather("cairo");
+  }, []);
+
+  useEffect(() => {
+    getWeatherDetails(
+      cityLocationData?.longitude,
+      cityLocationData?.latitude,
+      cityLocationData?.timezone
+    );
+  }, [cityLocationData]);
 
   useEffect(() => {
     if (searchWord) {

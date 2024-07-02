@@ -9,7 +9,7 @@ export default function DayCard({ item, id }) {
     <>
       <div
         onClick={() => handelDayDetails(id)}
-        className="h-[100%] w-[150px] border bg-white rounded-[15px] p-2 flex justify-between items-center flex-col border-stone-300/80 cursor-pointer"
+        className="h-[100%] w-[110px] border bg-white rounded-[15px] p-2 flex justify-between items-center flex-col border-stone-300/80 cursor-pointer"
       >
         <h1 className="text-center font-semibold capitalize text-[18px]">
           sun
@@ -29,13 +29,13 @@ export default function DayCard({ item, id }) {
         >
           <FaSun size={40} />
         </span>
-        <h1 className="text-center font-semibold capitalize">
+        <div className="font-semibold capitalize flex justify-center items-center flex-col">
           <span className="font-bold"> {item?.temperature_2m_max} °C</span>
-          <span className="text-red-700 font-bold text-[20px]"> / </span>
+          {/* <span className="text-red-700 font-bold text-[20px]"> / </span> */}
           <span className="text-[#7c7c7c] font-bold">
             {item?.temperature_2m_min} °C
           </span>
-        </h1>
+        </div>
       </div>
     </>
   );
