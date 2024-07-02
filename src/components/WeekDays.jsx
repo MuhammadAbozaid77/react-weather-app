@@ -1,16 +1,16 @@
+import { useContext } from "react";
+import { weatherContext } from "../context/WeatherContext";
 import DayCard from "./DayCard";
 
 export default function WeekDays() {
+  const { daysWeather } = useContext(weatherContext);
+
   return (
     <>
       <div className="h-[200px] p-5  flex justify-center items-center gap-3">
-        <DayCard />
-        <DayCard />
-        <DayCard />
-        <DayCard />
-        <DayCard />
-        <DayCard />
-        <DayCard />
+        {daysWeather.map((el, index) => (
+          <DayCard key={index} item={el} id={index} />
+        ))}
       </div>
     </>
   );
