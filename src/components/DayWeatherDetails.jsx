@@ -1,14 +1,16 @@
 import { weatherContext } from "../context/WeatherContext";
 import { useContext } from "react";
-import image1 from "../assets/pics/logo.png";
+import snowyImage from "./../assets/pics/snowy.gif";
+import cloudImage from "./../assets/pics/cloud.gif";
+import partlySunny from "./../assets/pics/partlySunny.gif";
+import veryHot from "./../assets/pics/veryHot.gif";
+import goodWeather from "../assets/pics/weathergif.gif";
 import clearsky from "../assets/pics/other/weather-app.png";
-import weathergif from "../assets/pics/weathergif.gif";
 import SpinnerLoading from "./ui/SpinnerLoading";
 
 export default function DayWeatherDetails() {
   const { dayDetails, isLoading, cityLocationData } =
     useContext(weatherContext);
-
   if (isLoading) {
     return (
       <>
@@ -26,7 +28,21 @@ export default function DayWeatherDetails() {
       <div>
         <div className="flex justify-center items-center  mt-10">
           <span>
-            <img className="w-[180px] mx-5" src={weathergif} alt="" />
+            <img
+              className="w-[200px]"
+              src={`${
+                dayDetails?.temperature_2m_max >= 36
+                  ? veryHot
+                  : dayDetails?.temperature_2m_max >= 25
+                  ? goodWeather
+                  : dayDetails?.temperature_2m_max >= 16
+                  ? partlySunny
+                  : dayDetails?.temperature_2m_max >= 1
+                  ? cloudImage
+                  : snowyImage
+              }`}
+              alt=""
+            />
           </span>
         </div>
         <div className="flex justify-center items-center mt-[20px]">

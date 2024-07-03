@@ -6,20 +6,8 @@ import { weatherContext } from "../context/WeatherContext";
 export default function SearchCompo() {
   const [searchWord, setSearchWord] = useState("");
 
-  const { cityLocationData, getWeather, getWeatherDetails } =
+  const { cityLocationData, getWeather } =
     useContext(weatherContext);
-
-  useEffect(() => {
-    getWeather("cairo");
-  }, []);
-
-  useEffect(() => {
-    getWeatherDetails(
-      cityLocationData?.longitude,
-      cityLocationData?.latitude,
-      cityLocationData?.timezone
-    );
-  }, [cityLocationData]);
 
   useEffect(() => {
     if (searchWord) {
@@ -29,11 +17,11 @@ export default function SearchCompo() {
 
   return (
     <>
-      <div className="relative">
-        <div className="p-2">
+      <div className="relative ">
+        <div className=" rounded  shadow-lg">
           <input
             type="search"
-            className="w-[900px] p-3 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-stone-500 text-stone-600 shadow font-semibold"
+            className="w-[900px] p-3 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 text-blue-600 shadow font-semibold"
             onChange={(e) => setSearchWord(e.target.value)}
           />
         </div>
