@@ -1,7 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-
 export const weatherContext = createContext(0);
-
 export default function WeatherContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingWeather, setIsLoadingWeather] = useState(false);
@@ -10,7 +8,25 @@ export default function WeatherContextProvider({ children }) {
   const [cityWeatherDetails, setCityWeatherDetails] = useState({});
   const [daysWeather, setDaysWeather] = useState([]);
   const [dayDetails, setDayDetails] = useState({});
-  // console.log(dayDetails);
+
+  // const today = new Date();
+  // const year = today.getFullYear();
+  // const month = String(today.getMonth() + 1).padStart(2, "0"); // Months are zero-indexed
+  // const day = String(today.getDate()).padStart(2, "0");
+  // console.log(day);
+  // const formattedDate = `${year}-${month}-${day}`;
+  // const daysOfWeek = [
+  //   "Sunday",
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday",
+  // ];
+  // const dayName = daysOfWeek[today.getDay()];
+  // console.log(dayName);
+
   async function getWeather(args) {
     if (args) {
       try {
@@ -51,6 +67,8 @@ export default function WeatherContextProvider({ children }) {
 
     for (let i = 0; i < details?.daily?.time?.length; i++) {
       const obj = {
+        id: i,
+        dayName: details?.daily.time[i],
         time: details?.daily.time[i],
         precipitation_probability_max:
           details?.daily.precipitation_probability_max[i],
