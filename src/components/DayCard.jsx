@@ -13,12 +13,12 @@ export default function DayCard({ item, id }) {
     <>
       <div
         onClick={() => handelDayDetails(id)}
-        className="h-[100%] w-[150px] border bg-white rounded-[15px] p-2 flex justify-between items-center flex-col border-stone-300/80 cursor-pointer"
+        className="h-[100%] w-[120px] border bg-white rounded-[15px] p-2 flex justify-between items-center flex-col border-stone-300/80 cursor-pointer"
       >
-        <h1 className="text-center capitalize text-[20px] text-slate-600 ">
+        <h1 className="text-center capitalize text-[14px] text-slate-600 ">
           {item?.dayName}
         </h1>
-        <h1 className="text-center capitalize text-[20px] text-slate-600 ">
+        <h1 className="text-center capitalize text-[14px] text-slate-600 ">
           {item?.time}
         </h1>
         <span className={`capitalize`}>
